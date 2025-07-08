@@ -79,6 +79,8 @@ class LoadSstreamlitUI:
             if 'state' not in st.session_state:
                 st.session_state.state = self.initialize_session() 
 
+        return self.user_controls
+
         
 
 
