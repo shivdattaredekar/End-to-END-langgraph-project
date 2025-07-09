@@ -1,6 +1,6 @@
 import streamlit as st
 
-from src.langgraphagenticai.UI.streamlitUI.loadUI import LoadSstreamlitUI
+from src.langgraphagenticai.UI.streamlitUI.loadUI import  LoadStreamlitUI
 from src.langgraphagenticai.llms.groqllm import GroqLLM
 from src.langgraphagenticai.graphs.graph_builder import GraphBuilder
 from src.langgraphagenticai.UI.streamlitUI.display_result import DisplayResultStreamlit
@@ -15,7 +15,7 @@ def load_langgraph_agenticai_app():
     implementing exception handling for robustness.
     """
     # Load UI
-    ui = LoadSstreamlitUI()
+    ui = LoadStreamlitUI()
     user_input = ui.load_streamlit_ui()
 
     if not user_input:
@@ -45,7 +45,7 @@ def load_langgraph_agenticai_app():
             try:
                 graph = graph_builer.setup_graph(usecase=usecase)
                 DisplayResultStreamlit(usecase,graph,user_message).display_result_on_ui()
-                
+
             except Exception as e:
                 st.error(f'Error: Graph setup failed {e}')
                 return

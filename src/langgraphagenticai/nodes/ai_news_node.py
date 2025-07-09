@@ -1,5 +1,4 @@
 from tavily import TavilyClient
-from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
 class AINewsNode:
@@ -53,13 +52,13 @@ class AINewsNode:
         news_items = self.state['news_data']
         prompt_template = ChatPromptTemplate.from_messages([
             ("system", """Summarize AI news articles into markdown format. For each item include:
-            - Date in **YYYY-MM-DD** format in IST timezone
-            - Concise sentences summary from latest news
-            - Sort news by date wise (latest first)
-            - Source URL as link
-            Use format:
-            ### [Date]
-            - [Summary](URL)"""),
+- Date in **YYYY-MM-DD** format in IST timezone
+- Concise sentences summary from latest news
+- Sort news by date wise (latest first)
+- Source URL as link
+Use format:
+### [Date]
+- [Summary](URL)"""),
             ("user", "Articles:\n{articles}")
         ])
         
